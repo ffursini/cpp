@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/26 22:44:10 by fursini           #+#    #+#             */
-/*   Updated: 2024/05/26 22:44:11 by fursini          ###   ########.fr       */
+/*   Created: 2024/05/26 22:46:52 by fursini           #+#    #+#             */
+/*   Updated: 2024/05/26 22:46:53 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#include "Fixed.hpp"
 
-#include <iostream>
-#include <string>
-
-class Weapon
+int main(void)
 {
-	private:
-		std::string	type;
-	public:
-		Weapon(std::string type);
-		~Weapon();
-		const std::string&	getType(void) const;
-		void				setType(std::string type);
-};
+	Fixed		a;
+	Fixed const	b(Fixed(5.05f) * Fixed(2));
 
-#endif
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+
+	std::cout << b << std::endl;
+
+	std::cout << Fixed::max(a, b) << std::endl;
+
+	return 0;
+}

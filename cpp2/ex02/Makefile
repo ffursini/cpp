@@ -5,28 +5,36 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fursini <fursini@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/26 22:40:49 by fursini           #+#    #+#              #
-#    Updated: 2024/05/26 22:40:50 by fursini          ###   ########.fr        #
+#    Created: 2024/05/26 22:46:58 by fursini           #+#    #+#              #
+#    Updated: 2024/05/26 22:46:58 by fursini          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	megaphone
+NAME	=	fixed
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
-SRC		=	./Megaphone.cpp
+SRC		=	./main.cpp \
+			./Fixed.cpp
+
+
+OBJ		=	$(SRC:.cpp=.o)
 
 
 $(NAME): $(OBJ)
-			$(CC) $(FLAGS) $(SRC) -o $(NAME)
+			$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 all:	$(NAME)
 
 clean:
-			$(RM) $(NAME)
+			$(RM) $(OBJ)
 
 fclean: clean
+			$(RM) $(NAME)
 
 re:		fclean all
+
+leak: re
+	valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=leaks.txt ./$(NAME)
 
 .PHONY: all clean fclean re
