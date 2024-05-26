@@ -1,10 +1,8 @@
-NAME	=	phonebook
+NAME	=	brain
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
-SRC		=	./PhoneBook.cpp \
-			./Contact.cpp \
-			./main.cpp
+SRC		=	./main.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
@@ -21,5 +19,8 @@ fclean: clean
 			$(RM) $(NAME)
 
 re:		fclean all
+
+leak: re
+	valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=leaks.txt ./$(NAME)
 
 .PHONY: all clean fclean re

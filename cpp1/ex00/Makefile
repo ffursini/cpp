@@ -1,9 +1,10 @@
-NAME	=	phonebook
+NAME	=	zombie
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
-SRC		=	./PhoneBook.cpp \
-			./Contact.cpp \
+SRC		=	./Zombie.cpp \
+			./randomChump.cpp \
+			./newZombie.cpp \
 			./main.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
@@ -21,5 +22,8 @@ fclean: clean
 			$(RM) $(NAME)
 
 re:		fclean all
+
+leak: re
+	valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=leaks.txt ./$(NAME)
 
 .PHONY: all clean fclean re

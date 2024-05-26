@@ -2,7 +2,7 @@ NAME	=	megaphone
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
-SRC	=	./Megaphone.cpp
+SRC		=	./Megaphone.cpp
 
 
 $(NAME): $(OBJ)
