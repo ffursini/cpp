@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/26 22:43:22 by fursini           #+#    #+#             */
-/*   Updated: 2024/05/26 22:43:22 by fursini          ###   ########.fr       */
+/*   Created: 2024/05/26 22:44:49 by fursini           #+#    #+#             */
+/*   Updated: 2024/05/30 15:12:58 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-Zombie*	zombieHorde(int N, std::string name)
+int main(int argc, char **argv)
 {
-	if (N < 1)
-		return NULL;
-	Zombie* horde = new Zombie[N];
-	for (int i = 0; i < N; i++)
-		horde[i].zombieName(name);
-	return (horde);
+	if (argc != 2)
+	{
+		std::cout << "Usage: ./harl <level>" << std::endl;
+		return 1;
+	}
+	Harl harl(argv[1]);
+	harl.complain();
+	return 0;
 }
