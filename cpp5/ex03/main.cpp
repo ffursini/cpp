@@ -6,35 +6,29 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:24:26 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/06 01:49:53 by fursini          ###   ########.fr       */
+/*   Updated: 2024/06/06 01:53:10 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-	try {
-		Bureaucrat b1("Edoardo", 1);
-		std::cout << b1 << std::endl;
-		b1.incrementGrade();
-	} catch (std::exception & e) {
-		std::cerr << e.what() << std::endl;
-	} try {
-		Bureaucrat b2("Francesco", 150);
-		std::cout << b2 << std::endl;
-		b2.decrementGrade();
-	} catch (std::exception & e) {
-		std::cerr << e.what() << std::endl;
-	} try {
-		Bureaucrat b3("Michele", 0);
-		std::cout << b3 << std::endl;
-	} catch (std::exception & e) {
-		std::cerr << e.what() << std::endl;
-	} try {
-		Bureaucrat b4("Dario", 151);
-		std::cout << b4 << std::endl;
-	} catch (std::exception & e) {
-		std::cerr << e.what() << std::endl;
-	}
+	Intern	Giorgio;
+	AForm*	form[4];
+
+	form[0] = Giorgio.makeForm("shrubbery creation", "Francesco");
+	form[1] = Giorgio.makeForm("robotomy request", "Francesco");
+	form[2] = Giorgio.makeForm("presidential pardon", "Francesco");
+	form[3] = Giorgio.makeForm("Daino", "Edoardo");
+
+	delete form[0];
+	delete form[1];
+	delete form[2];
+	delete form[3];
 }

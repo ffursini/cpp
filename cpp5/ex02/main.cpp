@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:24:26 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/05 22:09:22 by fursini          ###   ########.fr       */
+/*   Updated: 2024/06/06 00:36:20 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,4 @@ int main()
 	} catch(const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
-
-
-
 }
