@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:24:26 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/06 00:36:20 by fursini          ###   ########.fr       */
+/*   Updated: 2024/06/06 18:35:44 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ int main()
 		Bureaucrat v2("Villain", 150);
 		RobotomyRequestForm f2("robotomy");
 		b2.signForm(f2);
-		b2.executeForm(f2);
-		b2.executeForm(f2);
 		b2.executeForm(f2);
 		v2.executeForm(f2);
 	} catch(const std::exception& e) {

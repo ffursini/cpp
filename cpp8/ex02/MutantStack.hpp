@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 14:51:47 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/06 18:01:53 by fursini          ###   ########.fr       */
+/*   Created: 2024/06/09 23:31:10 by fursini           #+#    #+#             */
+/*   Updated: 2024/06/09 23:31:46 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
-int main(int ac, char **av)
-{
-	if (ac != 2)
-	{
-		std::cerr << "Usage: ./convert [literal]" << std::endl;
-		return 1;
-	}
-	ScalarConverter::convert(av[1]);
-	return 0;
-}
+# include <iostream>
+# include <stack>
+# include <deque>
+
+t
+
+#endif

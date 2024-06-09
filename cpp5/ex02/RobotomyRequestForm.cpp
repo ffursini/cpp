@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 21:38:49 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/05 21:40:22 by fursini          ###   ########.fr       */
+/*   Updated: 2024/06/06 18:35:07 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
 	std::cout << "*drilling noises*" << std::endl;
+	srand(time(NULL));
 	if (rand() % 2 == 0)
 		std::cout << target << " has been robotomized successfully" << std::endl;
 	else

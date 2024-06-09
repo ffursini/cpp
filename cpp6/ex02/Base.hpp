@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 14:51:47 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/06 18:01:53 by fursini          ###   ########.fr       */
+/*   Created: 2024/06/06 18:28:00 by fursini           #+#    #+#             */
+/*   Updated: 2024/06/06 18:32:36 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
 
-int main(int ac, char **av)
+#include <iostream>
+
+class Base
 {
-	if (ac != 2)
-	{
-		std::cerr << "Usage: ./convert [literal]" << std::endl;
-		return 1;
-	}
-	ScalarConverter::convert(av[1]);
-	return 0;
-}
+	public:
+		virtual ~Base() {};
+};
+
+class A : public Base {};
+
+class B : public Base {};
+
+class C : public Base {};
+
+Base* generate(void);
+void identify(Base* p);
+void identify(Base& p);
+
+#endif

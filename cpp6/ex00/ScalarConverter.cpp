@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 02:31:29 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/06 17:06:39 by fursini          ###   ########.fr       */
+/*   Updated: 2024/06/06 18:02:08 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,7 +218,7 @@ void	ScalarConverter::setValues(const std::string str)
 
 }
 
-void	ScalarConverter::convertInput(std::string input)
+void	ScalarConverter::convert(std::string input)
 {
 	setValues(input);
 	setType();
@@ -230,6 +230,7 @@ void	ScalarConverter::convertInput(std::string input)
 		floatToOthers();
 	else if (type == DOUBLE)
 		doubleToOthers();
+	display();
 }
 
 void	ScalarConverter::display()

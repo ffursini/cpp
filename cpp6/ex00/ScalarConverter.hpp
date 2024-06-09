@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 02:31:25 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/06 16:54:11 by fursini          ###   ########.fr       */
+/*   Updated: 2024/06/06 18:01:59 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ class ScalarConverter
 
 		static void setType();
 		static void setValues(const std::string str);
-	public:
-		static	void convertInput(std::string input);
 		static	void display();
+	public:
+		static	void convert(std::string input);
 };
 
 

@@ -6,15 +6,15 @@
 #    By: fursini <fursini@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/26 22:48:47 by fursini           #+#    #+#              #
-#    Updated: 2024/06/06 17:57:38 by fursini          ###   ########.fr        #
+#    Updated: 2024/06/09 22:53:59 by fursini          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	convert
+NAME	=	easyfind
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
-SRC		=	main.cpp ScalarConverter.cpp \
+SRC		=	main.cpp \
 
 
 

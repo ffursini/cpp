@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 14:51:47 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/06 18:01:53 by fursini          ###   ########.fr       */
+/*   Created: 2024/06/06 18:23:03 by fursini           #+#    #+#             */
+/*   Updated: 2024/06/06 18:24:01 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef DATA_HPP
+# define DATA_HPP
 
-int main(int ac, char **av)
+struct Data
 {
-	if (ac != 2)
-	{
-		std::cerr << "Usage: ./convert [literal]" << std::endl;
-		return 1;
-	}
-	ScalarConverter::convert(av[1]);
-	return 0;
-}
+	std::string s;
+	int n;
+};
+
+#endif

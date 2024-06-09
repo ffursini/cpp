@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 14:51:47 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/06 18:01:53 by fursini          ###   ########.fr       */
+/*   Created: 2024/06/06 23:13:35 by fursini           #+#    #+#             */
+/*   Updated: 2024/06/06 23:22:03 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-int main(int ac, char **av)
+#include <iostream>
+
+template <typename T>
+void swap(T &a, T &b)
 {
-	if (ac != 2)
-	{
-		std::cerr << "Usage: ./convert [literal]" << std::endl;
-		return 1;
-	}
-	ScalarConverter::convert(av[1]);
-	return 0;
+	T tmp = a;
+	a = b;
+	b = tmp;
 }
+
+template <typename T>
+T min(T a, T b)
+{
+	return (a < b ? a : b);
+}
+
+template <typename T>
+T max(T a, T b)
+{
+	return (a > b ? a : b);
+}
+
+#endif
+

@@ -5,20 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 14:51:47 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/06 18:01:53 by fursini          ###   ########.fr       */
+/*   Created: 2024/06/06 18:07:49 by fursini           #+#    #+#             */
+/*   Updated: 2024/06/06 18:21:39 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Serializer.hpp"
 
-int main(int ac, char **av)
+int main()
 {
-	if (ac != 2)
-	{
-		std::cerr << "Usage: ./convert [literal]" << std::endl;
-		return 1;
-	}
-	ScalarConverter::convert(av[1]);
+	Data data;
+	data.s = "I don't want to set the world on fire";
+	data.n = 42;
+
+	uintptr_t raw = Serializer::serialize(&data);
+	std::cout << "Raw: " << raw << std::endl;
+	Data* ptr = Serializer::deserialize(raw);
+	std::cout << "Ptr: " << ptr << std::endl;
+
+	std::cout << "Data: " << ptr->s << " " << ptr->n << std::endl;
+
 	return 0;
 }
