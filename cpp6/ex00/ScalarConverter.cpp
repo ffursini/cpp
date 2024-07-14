@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 02:31:29 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/06 18:02:08 by fursini          ###   ########.fr       */
+/*   Updated: 2024/07/14 17:56:14 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ bool ScalarConverter::isInt()
 
 bool ScalarConverter::isFloat()
 {
-	if (input.length() == 1 && isdigit(input[0]))
-		return true;
 	if (input.length() > 1 && (isdigit(input[0]) || input[0] == '-' || input[0] == '+') && input[input.length() - 1] == 'f')
 	{
 		int dot = 0;
@@ -75,8 +73,6 @@ bool ScalarConverter::isFloat()
 
 bool ScalarConverter::isDouble()
 {
-	if (input.length() == 1 && isdigit(input[0]))
-		return true;
 	if (input.length() > 1 && (isdigit(input[0]) || input[0] == '-' || input[0] == '+'))
 	{
 		int dot = 0;
