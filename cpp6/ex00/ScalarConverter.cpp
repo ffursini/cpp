@@ -60,7 +60,7 @@ bool ScalarConverter::isFloat()
 	if (input.length() > 1 && (isdigit(input[0]) || input[0] == '-' || input[0] == '+') && input[input.length() - 1] == 'f')
 	{
 		int dot = 0;
-		for (size_t i = 0; i < input.length() - 1; i++)
+		for (size_t i = 1; i < input.length() - 1; i++)
 		{
 			if (input[i] == '.')
 				dot++;
