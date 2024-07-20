@@ -6,39 +6,60 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:17:58 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/09 22:16:36 by fursini          ###   ########.fr       */
+/*   Updated: 2024/07/20 16:34:00 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Array.hpp"
 
-int main()
+#define MAX_VAL 750
+int main(int, char**)
 {
-	Array<int> intArray(3);
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
-	for (unsigned int i = 0; i < intArray.getSize(); i++)
-		intArray[i] = i;
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-	Array<int> intArrayCopy(intArray);
-
-	std::cout << "intArray: " << intArray << std::endl;
-	std::cout << "intArrayCopy: " << intArrayCopy << std::endl;
-
-	Array<std::string> stringArray(3);
-
-	stringArray[0] = "Hello";
-	stringArray[1] = "World";
-	stringArray[2] = "!";
-
-	std::cout << "stringArray: " << stringArray << std::endl;
-	try {
-		stringArray[3] = "Bruh";
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-
-	Array<char> charArray;
-
-	std::cout << "charArray: " << charArray << std::endl;
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
 }

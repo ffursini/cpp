@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 23:18:52 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/09 22:13:29 by fursini          ###   ########.fr       */
+/*   Updated: 2024/07/20 16:41:24 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ class Array
 			return array[i];
 		}
 
-		unsigned int getSize() const { return size; };
+		unsigned int Size() const { return size; };
 
 		class OutOfLimits : public std::exception
 		{
@@ -66,7 +66,7 @@ class Array
 template <typename T>
 std::ostream &operator<<(std::ostream &out, const Array<T> &array)
 {
-	for (unsigned int i = 0; i < array.getSize(); i++)
+	for (unsigned int i = 0; i < array.Size(); i++)
 		out << array[i] << " ";
 	return out;
 }
