@@ -6,7 +6,7 @@
 #    By: fursini <fursini@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/26 22:48:47 by fursini           #+#    #+#              #
-#    Updated: 2024/06/13 22:37:46 by fursini          ###   ########.fr        #
+#    Updated: 2024/07/28 05:34:59 by fursini          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRC		=	main.cpp PmergeMe.cpp \
 
 OBJ		=	$(SRC:.cpp=.o)
 
+%.o: %.cpp
+	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 			$(CC) $(FLAGS) $(OBJ) -o $(NAME)

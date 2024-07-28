@@ -6,7 +6,7 @@
 #    By: fursini <fursini@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/26 22:48:47 by fursini           #+#    #+#              #
-#    Updated: 2024/06/06 17:57:38 by fursini          ###   ########.fr        #
+#    Updated: 2024/07/28 05:26:33 by fursini          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC		=	main.cpp ScalarConverter.cpp \
 
 
 OBJ		=	$(SRC:.cpp=.o)
+
 
 
 $(NAME): $(OBJ)
