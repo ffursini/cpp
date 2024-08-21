@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:21:20 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/13 22:11:29 by fursini          ###   ########.fr       */
+/*   Updated: 2024/08/21 19:46:01 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <string>
 #include <stack>
 #include <sstream>
+#include <cstdlib>
 
 class RPN
 {
@@ -27,6 +28,7 @@ class RPN
 		void division(int a, int b);
 		void pushNumber(std::string token);
 
+		int stringToInt(std::string str);
 	public:
 		RPN();
 		RPN(const RPN &src);

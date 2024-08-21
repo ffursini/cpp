@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 22:37:26 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/14 03:40:24 by fursini          ###   ########.fr       */
+/*   Updated: 2024/08/21 19:49:08 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <vector>
 #include <list>
 #include <algorithm>
-#include <chrono>
+#include <ctime>
 #include <iomanip>
 
 class PmergeMe
@@ -27,9 +27,9 @@ class PmergeMe
 	private:
 		std::vector<unsigned int> vector;
 		std::list<unsigned int> list;
-		std::chrono::time_point<std::chrono::system_clock> start;
-		std::chrono::time_point<std::chrono::system_clock> end;
-		std::chrono::duration<double> time;
+		clock_t start;
+		clock_t end;
+		double time;
 
 		void fillVector(char **av);
 		void printVector(std::vector<unsigned int> &vector);

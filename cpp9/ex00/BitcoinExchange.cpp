@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:13:52 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/13 16:29:13 by fursini          ###   ########.fr       */
+/*   Updated: 2024/08/21 19:41:51 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ void BitcoinExchange::isValidDate(std::string date)
 	if (date[4] != '-' || date[7] != '-')
 		throw BadInput();
 
-	int year = std::stoi(date.substr(0, 4));
-	int month = std::stoi(date.substr(5, 2));
-	int day = std::stoi(date.substr(8, 2));
-	int firstYear = std::stoi(firstDate.substr(0, 4));
-	int firstMonth = std::stoi(firstDate.substr(5, 2));
-	int firstDay = std::stoi(firstDate.substr(8, 2));
+	int year = stringToInt(date.substr(0, 4));
+	int month = stringToInt(date.substr(5, 2));
+	int day = stringToInt(date.substr(8, 2));
+	int firstYear = stringToInt(firstDate.substr(0, 4));
+	int firstMonth = stringToInt(firstDate.substr(5, 2));
+	int firstDay = stringToInt(firstDate.substr(8, 2));
 
 	if (year < firstYear || (year == firstYear && month < firstMonth) || (year == firstYear && month == firstMonth && day < firstDay))
 		throw BadInput();
@@ -103,9 +103,9 @@ void BitcoinExchange::setFirstDate()
 
 std::string BitcoinExchange::previousDate(std::string date)
 {
-	int year = std::stoi(date.substr(0, 4));
-	int month = std::stoi(date.substr(5, 2));
-	int day = std::stoi(date.substr(8, 2));
+	int year = stringToInt(date.substr(0, 4));
+	int month = stringToInt(date.substr(5, 2));
+	int day = stringToInt(date.substr(8, 2));
 
 	if (day > 1)
 		day--;
@@ -131,13 +131,13 @@ std::string BitcoinExchange::previousDate(std::string date)
 		day = 31;
 	}
 
-	std::string newDate = std::to_string(year) + "-";
+	std::string newDate = intToString(year) + "-";
 	if (month < 10)
 		newDate += "0";
-	newDate += std::to_string(month) + "-";
+	newDate += intToString(month) + "-";
 	if (day < 10)
 		newDate += "0";
-	newDate += std::to_string(day);
+	newDate += intToString(day);
 
 	return newDate;
 }
@@ -156,7 +156,7 @@ float BitcoinExchange::getDateValue(std::string date)
 
 void BitcoinExchange::exchange(std::string input)
 {
-	std::ifstream file(input);
+	std::ifstream file(input.c_str());
 	if (!file.is_open())
 	{
 		std::cerr << "Error: cannot open file." << std::endl;
@@ -193,4 +193,29 @@ void BitcoinExchange::exchange(std::string input)
 	}
 
 	file.close();
+}
+
+int BitcoinExchange::stringToInt(std::string str)
+{
+	int result = 0;
+	for (size_t i = 0; i < str.size(); i++)
+	{
+		if (str[i] < '0' || str[i] > '9')
+			throw BadInput();
+		result = result * 10 + str[i] - '0';
+	}
+	return result;
+}
+
+std::string BitcoinExchange::intToString(int value)
+{
+	std::string result;
+	if (value == 0)
+		return "0";
+	while (value > 0)
+	{
+		result = static_cast<char>(value % 10 + '0') + result;
+		value /= 10;
+	}
+	return result;
 }

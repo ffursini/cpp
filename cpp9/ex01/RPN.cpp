@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:21:08 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/13 22:11:38 by fursini          ###   ########.fr       */
+/*   Updated: 2024/08/21 19:44:36 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ RPN::~RPN() {}
 
 void RPN::validSize(int size)
 {
-	if (size == 2 && stack.size() < size)
+	int stackSize = stack.size();
+
+	if (size == 2 && stackSize < size)
 		throw InvalidExpression();
-	else if (size == 1 && stack.size() != size)
+	else if (size == 1 && stackSize != size)
 		throw InvalidExpression();
 }
 
@@ -48,7 +50,7 @@ void RPN::pushNumber(std::string token)
 			throw NotANumber();
 		it++;
 	}
-	stack.push(std::stoi(token));
+	stack.push(stringToInt(token));
 }
 
 void RPN::calculate(std::string input)
@@ -94,4 +96,16 @@ void RPN::calculate(std::string input)
 		exit(1);
 	}
 	std::cout << stack.top() << std::endl;
+}
+
+int RPN::stringToInt(std::string str)
+{
+	int result = 0;
+	for (size_t i = 0; i < str.size(); i++)
+	{
+		if (str[i] < '0' || str[i] > '9')
+			throw NotANumber();
+		result = result * 10 + str[i] - '0';
+	}
+	return result;
 }

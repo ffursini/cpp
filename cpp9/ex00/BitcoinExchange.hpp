@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:13:50 by fursini           #+#    #+#             */
-/*   Updated: 2024/06/13 16:35:34 by fursini          ###   ########.fr       */
+/*   Updated: 2024/08/21 19:45:53 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ class BitcoinExchange
 		void setFirstDate();
 		std::string previousDate(std::string date);
 		float getDateValue(std::string date);
+
+		int stringToInt(std::string str);
+		std::string intToString(int value);
 	public:
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange &src);
