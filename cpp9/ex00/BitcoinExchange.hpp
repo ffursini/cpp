@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:13:50 by fursini           #+#    #+#             */
-/*   Updated: 2024/08/21 19:45:53 by fursini          ###   ########.fr       */
+/*   Updated: 2024/08/23 20:00:43 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <fstream>
 #include <sstream>
 #include <exception>
+#include <limits>
 
 
 class BitcoinExchange
@@ -37,6 +38,7 @@ class BitcoinExchange
 		float getDateValue(std::string date);
 
 		int stringToInt(std::string str);
+		bool longerThanMaxInt(std::string str);
 		std::string intToString(int value);
 	public:
 		BitcoinExchange();

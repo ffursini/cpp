@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:13:52 by fursini           #+#    #+#             */
-/*   Updated: 2024/08/21 19:41:51 by fursini          ###   ########.fr       */
+/*   Updated: 2024/08/23 20:35:08 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void BitcoinExchange::isPositiveNumber(float value)
 
 void BitcoinExchange::isTooLargeNumber(float value)
 {
-	if (static_cast<int>(value) > 1000)
+	if (value > 1000)
 		throw TooLargeNumber();
 }
 
@@ -195,20 +195,9 @@ void BitcoinExchange::exchange(std::string input)
 	file.close();
 }
 
-int BitcoinExchange::stringToInt(std::string str)
-{
-	int result = 0;
-	for (size_t i = 0; i < str.size(); i++)
-	{
-		if (str[i] < '0' || str[i] > '9')
-			throw BadInput();
-		result = result * 10 + str[i] - '0';
-	}
-	return result;
-}
-
 std::string BitcoinExchange::intToString(int value)
 {
+
 	std::string result;
 	if (value == 0)
 		return "0";
@@ -218,4 +207,23 @@ std::string BitcoinExchange::intToString(int value)
 		value /= 10;
 	}
 	return result;
+}
+
+int BitcoinExchange::stringToInt(std::string str)
+{
+	if (str.empty() || str.size() > 10)
+		throw BadInput();
+
+	std::istringstream iss(str);
+	long num;
+
+	iss >> num;
+
+	if (iss.fail() || !iss.eof())
+		throw BadInput();
+
+	if (num > 2147483647 || num < -2147483648)
+		throw BadInput();
+
+	return static_cast<int>(num);
 }

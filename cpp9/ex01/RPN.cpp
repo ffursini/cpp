@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:21:08 by fursini           #+#    #+#             */
-/*   Updated: 2024/08/21 19:44:36 by fursini          ###   ########.fr       */
+/*   Updated: 2024/08/23 20:38:06 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,19 @@ void RPN::calculate(std::string input)
 
 int RPN::stringToInt(std::string str)
 {
-	int result = 0;
-	for (size_t i = 0; i < str.size(); i++)
-	{
-		if (str[i] < '0' || str[i] > '9')
-			throw NotANumber();
-		result = result * 10 + str[i] - '0';
-	}
-	return result;
+	if (str.empty() || str.size() > 10)
+		throw NotANumber();
+
+	std::istringstream iss(str);
+	long num;
+
+	iss >> num;
+
+	if (iss.fail() || !iss.eof())
+		throw NotANumber();
+
+	if (num > 2147483647 || num < -2147483648)
+		throw NotANumber();
+
+	return static_cast<int>(num);
 }
