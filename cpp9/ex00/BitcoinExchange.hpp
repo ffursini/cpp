@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:13:50 by fursini           #+#    #+#             */
-/*   Updated: 2024/08/23 20:00:43 by fursini          ###   ########.fr       */
+/*   Updated: 2024/09/16 01:28:01 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class BitcoinExchange
 		std::map<std::string, float> database;
 		std::string firstDate;
 
+		void isValidLine(std::string line);
 		void isPositiveNumber(float value);
 		void isTooLargeNumber(float value);
 		void isValidDate(std::string date);

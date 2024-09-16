@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:13:52 by fursini           #+#    #+#             */
-/*   Updated: 2024/08/23 20:35:08 by fursini          ###   ########.fr       */
+/*   Updated: 2024/09/16 02:02:32 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,31 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &src)
 {
 	database = src.database;
 	return *this;
+}
+
+void BitcoinExchange::isValidLine(std::string line)
+{
+	size_t i = 0;
+
+	while (i < line.size())
+	{
+		if (line[i] == ' ')
+		{
+			i++;
+			break;
+		}
+		i++;
+		if (i == line.size() - 1)
+			throw BadInput();
+	}
+
+	if (line[i] != '|' || i == 0)
+		throw BadInput();
+	i++;
+
+	if (i == line.size() - 1 || line[i] != ' ')
+		throw BadInput();
+
 }
 
 void BitcoinExchange::isPositiveNumber(float value)
@@ -177,6 +202,7 @@ void BitcoinExchange::exchange(std::string input)
 			std::getline(ss, date, '|');
 			date = date.substr(0, 10);
 			ss >> value;
+			isValidLine(line);
 			isValidDate(date);
 			isPositiveNumber(value);
 			isTooLargeNumber(value);

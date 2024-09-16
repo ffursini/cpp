@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 22:36:23 by fursini           #+#    #+#             */
-/*   Updated: 2024/08/21 19:55:52 by fursini          ###   ########.fr       */
+/*   Updated: 2024/09/02 21:32:17 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,8 @@ void PmergeMe::fillList(char **av) {
 
 void PmergeMe::sortList(std::list<unsigned int> &list) {
     int size = list.size();
-    if (size <= 1)
+
+	if (size <= 1)
         return;
 
     int mid = size / 2;
